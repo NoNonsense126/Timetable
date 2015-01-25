@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Upmin::Engine => '/admin'
+  end
+  devise_for :users
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
