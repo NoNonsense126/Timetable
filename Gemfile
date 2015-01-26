@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 
@@ -16,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.0.0.beta2'
+gem 'bootstrap-sass', '~> 3.3.3'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -24,6 +27,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'arel', '6.0.0.beta2'
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -39,7 +43,6 @@ gem 'will_paginate-bootstrap'
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  gem 'sqlite3'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0.0.beta4'
@@ -52,6 +55,6 @@ end
 group :production do
 	gem 'unicorn'
 	gem 'rails_12factor'
-	gem 'pg'
+	
 end
 

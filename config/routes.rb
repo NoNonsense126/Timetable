@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'static_pages#home'
+  resources :time_slots, only: :create
+  resources :schedules, only: [:create, :show] do
+    member { post 'generate' }
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

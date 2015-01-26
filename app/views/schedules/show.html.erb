@@ -1,0 +1,25 @@
+<table class="table">
+	<thead>
+		<tr>
+			<th></th>
+			<% while @time <= @end_time do %>
+				<th><%= "#{@time/60}:#{'%02d' % (@time%60)} - #{(@time+@period)/60}:#{'%02d' % ((@time+@period)%60)}" %></th>
+				<% @time += @period %>
+			<% end %>
+		</tr>
+	</thead>
+	<tbody>
+		<% @days.each_with_index do |day, index| %>
+			<tr>
+				<td>
+					<%= Date::DAYNAMES[day] %>
+				</td>
+				<% @result[index].each do |ele| %>
+					<td><%= Lecture.find_by(id: ele).try(:name) unless ele == nil %></td>
+				<% end %>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to button_tag("Generate!"), generate_schedule_path, method: :post %>
